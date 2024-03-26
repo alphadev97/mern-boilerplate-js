@@ -1,6 +1,7 @@
 import express from "express";
 import { connectToMongoDB } from "./config/db";
 import authRouter from "./routes/authRoute.js";
+import cookieParser from "cookie-parser";
 
 dotenv.config();
 
