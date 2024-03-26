@@ -1,6 +1,6 @@
-import express from 'express';
-import { connectToMongoDB } from './config/db';
-import userRouter from './routes/userRoute.js';
+import express from "express";
+import { connectToMongoDB } from "./config/db";
+import authRouter from "./routes/authRoute.js";
 
 dotenv.config();
 
@@ -13,13 +13,13 @@ const port = 3000;
 app.use(express.json());
 app.use(cookieParser());
 
-app.get('/', (req, res) => {
-	res.send('Hello World!');
+app.get("/", (req, res) => {
+  res.send("Hello World!");
 });
 
-app.use('/api/user', userRouter);
+app.use("/api/user", authRouter);
 
 // Start the server
 app.listen(port, () => {
-	console.log(`Server is running on port ${port}`);
+  console.log(`Server is running on port ${port}`);
 });
