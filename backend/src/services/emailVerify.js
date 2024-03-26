@@ -1,6 +1,6 @@
-import { generateToken } from '../utils/generateToken';
-import { createAndSendEmail } from './createAndSendEmail';
-import { getEmailVerifyTemplate } from './emailVerifyTemplate';
+import { generateToken } from '../utils/generateToken.js';
+import { createAndSendEmail } from './createAndSendEmail.js';
+import { getEmailVerifyTemplate } from './emailVerifyTemplate.js';
 
 const emailVerify = (user) => {
 	const token = generateToken(user.id, user.role, process.env.JWT_SECRET);

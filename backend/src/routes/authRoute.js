@@ -1,9 +1,9 @@
-import express from 'express';
-import { createUser } from '../controllers/userController';
-import { userValidator } from '../validator/userValidator';
+import express from "express";
+import { userValidator } from "../validator/userValidator.js";
+import { signUp } from "../controllers/authController.js";
 
 const router = express.Router();
 
-router.post('/', userValidator, createUser);
+router.post("/", userValidator, signUp);
 
 export default router;

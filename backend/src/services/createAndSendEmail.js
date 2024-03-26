@@ -1,4 +1,4 @@
-import { nodeMailer } from '../config/nodemailer';
+import { nodeMailer } from '../config/nodemailer.js';
 
 export const createAndSendEmail = (mailOptions) => {
 	const transporter = nodeMailer(
