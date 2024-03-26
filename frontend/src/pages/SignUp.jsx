@@ -8,7 +8,8 @@ const SignUp = () => {
   return (
     <div className="flex justify-center h-[100vh] bg-blue-300 text-center">
       <div className="flex w-full justify-center items-center">
-        <div className="w-[30%] h-[500px] bg-white flex flex-col px-4 gap-4 justify-center">
+        <div className="w-[30%] h-[500px] bg-white flex flex-col px-5 gap-4 justify-center rounded shadow-sm">
+          <h1 className="text-[30px] font-semibold">Sign Up</h1>
           <form className="flex flex-col text-center justify-center w-full gap-5">
             <input
               className="border-slate-200 border-2 h-12 p-3 rounded"
