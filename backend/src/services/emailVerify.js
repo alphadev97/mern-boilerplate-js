@@ -1,7 +1,4 @@
-import jwt from "jsonwebtoken";
-
 import { generateToken } from "../utils/generateToken";
-import { nodeMailer } from "../config/nodemailer";
 import { createAndSendEmail } from "./createAndSendEmail";
 import { getEmailVerifyTemplate } from "./emailVerifyTemplate";
 
