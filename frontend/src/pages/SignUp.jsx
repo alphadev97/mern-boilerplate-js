@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { CircleCheck } from "lucide-react";
+import FormInput from "@/components/signup/FormInput";
 
 const SignUp = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -36,11 +37,27 @@ const SignUp = () => {
               onSubmit={handleSubmit(onSubmit)}
               className="flex flex-col text-center justify-center w-full gap-5"
             >
-              <input
+              <FormInput fieldID="anything" />
+              <FormInput
+                type="email"
+                placeholder="Email Address"
+                fieldID="email"
+              />
+              <FormInput
+                type="text"
+                placeholder="Username"
+                fieldID="username"
+              />
+              <FormInput
+                type="password"
+                placeholder="Password"
+                fieldID="password"
+              />
+              {/* <input
                 className="border-slate-200 border-2 h-12 p-3 rounded"
                 type="email"
                 placeholder="Email Address"
-                {...register("email")}
+                {...register("email", { required: true, maxLength: 20 })}
               />
               <input
                 className="border-slate-200 border-2 h-12 p-3 rounded"
@@ -53,7 +70,7 @@ const SignUp = () => {
                 type="password"
                 placeholder="Password"
                 {...register("password")}
-              />
+              /> */}
               <button
                 className="bg-black border text-white p-3 rounded hover:bg-white hover:text-black hover:border hover:border-black"
                 type="submit"
