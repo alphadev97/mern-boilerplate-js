@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 const SignUp = () => {
   const {
@@ -10,7 +11,10 @@ const SignUp = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log(data);
+    toast.success("Form is submitted!");
+  };
 
   return (
     <div className="flex justify-center h-[100vh] bg-blue-300 text-center">
