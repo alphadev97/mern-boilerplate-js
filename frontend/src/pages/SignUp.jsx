@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 
 const SignUp = () => {
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const {
     register,
     handleSubmit,
@@ -13,6 +14,7 @@ const SignUp = () => {
 
   const onSubmit = (data) => {
     console.log(data);
+    setIsSubmitted(true);
     toast.success("Form is submitted!");
   };
 
@@ -21,35 +23,41 @@ const SignUp = () => {
       <div className="flex w-full justify-center items-center">
         <div className="w-[30%] h-[500px] bg-white flex flex-col px-5 gap-4 justify-center rounded shadow-sm">
           <h1 className="text-[30px] font-semibold">Sign Up</h1>
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col text-center justify-center w-full gap-5"
-          >
-            <input
-              className="border-slate-200 border-2 h-12 p-3 rounded"
-              type="email"
-              placeholder="Email Address"
-              {...register("email")}
-            />
-            <input
-              className="border-slate-200 border-2 h-12 p-3 rounded"
-              type="text"
-              placeholder="Username"
-              {...register("username")}
-            />
-            <input
-              className="border-slate-200 border-2 h-12 p-3 rounded"
-              type="password"
-              placeholder="Password"
-              {...register("password")}
-            />
-            <button
-              className="bg-black border text-white p-3 rounded hover:bg-white hover:text-black hover:border hover:border-black"
-              type="submit"
+          {isSubmitted ? (
+            <div>
+              <p>Please check your email to activate your account</p>
+            </div>
+          ) : (
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="flex flex-col text-center justify-center w-full gap-5"
             >
-              Create Your Account
-            </button>
-          </form>
+              <input
+                className="border-slate-200 border-2 h-12 p-3 rounded"
+                type="email"
+                placeholder="Email Address"
+                {...register("email")}
+              />
+              <input
+                className="border-slate-200 border-2 h-12 p-3 rounded"
+                type="text"
+                placeholder="Username"
+                {...register("username")}
+              />
+              <input
+                className="border-slate-200 border-2 h-12 p-3 rounded"
+                type="password"
+                placeholder="Password"
+                {...register("password")}
+              />
+              <button
+                className="bg-black border text-white p-3 rounded hover:bg-white hover:text-black hover:border hover:border-black"
+                type="submit"
+              >
+                Create Your Account
+              </button>
+            </form>
+          )}
           <p>
             Already have an account?{" "}
             <Link className="font-bold" to={"/"}>
