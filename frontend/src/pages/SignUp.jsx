@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import { CircleCheck } from "lucide-react";
 
 const SignUp = () => {
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(true);
   const {
     register,
     handleSubmit,
@@ -24,8 +25,11 @@ const SignUp = () => {
         <div className="w-[30%] h-[500px] bg-white flex flex-col px-5 gap-4 justify-center rounded shadow-sm">
           <h1 className="text-[30px] font-semibold">Sign Up</h1>
           {isSubmitted ? (
-            <div>
-              <p>Please check your email to activate your account</p>
+            <div className="flex flex-col items-center gap-5">
+              <CircleCheck size={80} className="text-green-600" />
+              <p className="text-lg">
+                Please check your email to activate your account!
+              </p>
             </div>
           ) : (
             <form
