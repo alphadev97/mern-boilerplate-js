@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import { CircleCheck } from "lucide-react";
 
 const SignUp = () => {
-  const [isSubmitted, setIsSubmitted] = useState(true);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const {
     register,
     handleSubmit,
